@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Task Prioritization App</title>
+</head>
+<body>
+
+<center><h1>Task Prioritization Helper</h1></center>
+
+<div class="container"> 
+    <div id="inputSection">
+        <h2>How would you like to prioritize these factors?</h2>
+        Use the sliders to select how you would like the urgency and difficulty of your tasks to be weighted. Higher urgency will prioritize a task, while higher difficulty will deprioritize a task.
+
+        <label for="urgencyWeight">Urgency:</label>
+        <input type="range" id="urgencyWeight" min="0" max="100" value="50" oninput="updateWeights()">
+        <span id="urgencyWeightLabel">50</span>
+
+        <label for="difficultyWeight">Difficulty:</label>
+        <input type="range" id="difficultyWeight" min="0" max="100" value="50" oninput="updateWeights()">
+        <span id="difficultyWeightLabel">50</span>
+
+        <h2>Add your tasks</h2>
+        Next, click on Add Task to input each task you have to complete, and rate each task by its urgency and difficulty, with 1 being lowest and 5 being highest.
+
+        <div id="taskList">
+            <!-- Task input fields will appear here as the user clicks Add Task -->
+        </div>
+
+        <button onclick="addTaskInput()">Add Task</button>
+        <button onclick="submitTasks()">Submit</button>
+        <button onclick="clearTasks()">Clear</button>
+    </div>
+
+    <div id="outputSection">
+        <h2>Sorted Task List</h2>
+        This is the suggested order to complete your tasks in, based on the criteria set.
+        <ul id="sortedTasks">
+            <!-- Sorted tasks will be displayed here -->
+        </ul>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
